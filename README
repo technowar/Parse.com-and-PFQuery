@@ -1,0 +1,13 @@
+iOS application development using Parse.com as a backend service.
+
+The project only logs names of video game consoles which is stored in
+the service.
+
+P.S.
+This code is messy, I know. If there are things needed to be changed,
+please do not hesitate to contact me. I am open to suggestions.
+
+Thank you!
+
+Thursday, March 21, 2013
+Deployment Target: 6.0
