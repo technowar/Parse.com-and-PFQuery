@@ -36,6 +36,23 @@
         NSString *name = [dictionaryName objectForKey:@"consoleName"];
         NSLog(@"Request: %@", name);
     }
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Console"];
+    [query whereKeyExists:@"consoleName"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            // The find succeeded.
+            for (NSDictionary *dictionaryName in objects) {
+                NSString *name = [dictionaryName objectForKey:@"consoleName"];
+                NSLog(@"PFQuery: %@", name);
+            }
+        }
+        
+        else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning
